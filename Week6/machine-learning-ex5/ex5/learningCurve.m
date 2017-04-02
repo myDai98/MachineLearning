@@ -53,6 +53,18 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+for i=1:m
+    %go through the data size i 
+    
+    % here to use lambda
+    theta=trainLinearReg(X(1:i,:),y(1:i),lambda);
+    
+    [Jtrain,grad_train]=linearRegCostFunction(X(1:i,:),y(1:i),theta,0); 
+	[Jval,grad_val]=linearRegCostFunction(Xval,yval,theta,0);
+    
+    error_train(i)=Jtrain;
+    error_val(i)=Jval;
+end;
 
 
 
